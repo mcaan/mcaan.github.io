@@ -3,38 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Michael Caan's data science projects in experimentation, predictive modeling, and behavioral analysis.">
+  <meta name="description" content="Michael Caan’s data science projects in experimentation, predictive modeling, and behavioral analysis.">
   <title>Michael Caan — Data Science</title>
-  <link rel="canonical" href="https://mcaan.github.io/portfolio/">
+  <link rel="canonical" href="https://mcaan.github.io/">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="container">
-    <header class="intro">
+  <div class="shell">
+    <aside class="sidebar" aria-label="Profile and navigation">
+      <div class="eyebrow">Portfolio / Data Science</div>
+      <div class="portrait" aria-label="Profile photo placeholder">YOUR<br>PHOTO</div>
       <h1>Michael Caan</h1>
-      <p>Data science · Product analytics</p>
-      <p class="bio">A selection of projects in experimentation, predictive modeling, and behavioral analysis.</p>
-    </header>
-
-    <section aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Projects</h2>
-      <ul class="projects">
-        <li>
-          <div class="project-heading"><h3><a href="https://github.com/mcaan/Product-Notification-AB-Test">Product notification A/B test <span aria-hidden="true">↗</span></a></h3><span>Experimentation</span></div>
-          <p>Evaluated purchase lift against increased app uninstalls in a randomized notification experiment.</p>
-        </li>
-        <li>
-          <div class="project-heading"><h3><a href="https://github.com/mcaan/NCAA-March-Madness-2026">March Madness predictions <span aria-hidden="true">↗</span></a></h3><span>Predictive modeling</span></div>
-          <p>Compared logistic regression, XGBoost, and an ensemble for tournament probability and bracket predictions.</p>
-        </li>
-        <li>
-          <div class="project-heading"><h3><a href="https://github.com/mcaan/Open-Sourcing-Mental-Health">Mental health in tech <span aria-hidden="true">↗</span></a></h3><span>Behavioral analysis</span></div>
-          <p>Explored treatment-seeking behavior through survey harmonization, segmentation, and propensity modeling.</p>
-        </li>
-      </ul>
-    </section>
-
-    <footer><a href="https://github.com/mcaan">GitHub <span aria-hidden="true">↗</span></a></footer>
-  </main>
+      <p class="bio">Your short bio goes here.</p>
+      <nav class="nav" aria-label="Main links"><span class="nav-placeholder" aria-label="Résumé coming soon">Résumé · Coming soon</span><a href="https://github.com/mcaan">GitHub ↗</a></nav>
+      <div class="foot">Selected work · Four projects</div>
+    </aside>
+    <main class="content" id="projects">
+      <header class="top"><span class="eyebrow">Selected projects</span><p>01 — 04</p></header>
+      <div class="grid">
+        <!-- Project links currently open their GitHub repositories. Update them to rendered project pages when available. -->
+        <a class="card one" href="https://github.com/mcaan/Product-Notification-AB-Test" aria-label="View project one"><span class="arrow" aria-hidden="true">↗</span><div class="card-inner"><span class="number">01 / PROJECT</span><h2>Product notification A/B test</h2><p>Experimentation · Causal inference</p></div></a>
+        <a class="card two" href="https://github.com/mcaan/NCAA-March-Madness-2026" aria-label="View project two"><span class="arrow" aria-hidden="true">↗</span><div class="card-inner"><span class="number">02 / PROJECT</span><h2>March Madness predictions</h2><p>Python · SQL · Predictive modeling</p></div></a>
+        <a class="card three" href="https://github.com/mcaan/Open-Sourcing-Mental-Health" aria-label="View project three"><span class="arrow" aria-hidden="true">↗</span><div class="card-inner"><span class="number">03 / PROJECT</span><h2>Mental health in tech</h2><p>Survey analysis · Segmentation</p></div></a>
+        <div class="card four upcoming" aria-label="Customer LTV and Churn Predictions, coming soon"><div class="card-inner"><span class="number">04 / COMING SOON</span><h2>Customer LTV &amp; Churn Predictions</h2><p>Customer analytics · Predictive modeling</p></div></div>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
