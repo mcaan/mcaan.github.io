@@ -1,0 +1,9 @@
+[submodule "NCAA-March-Madness-2026"]
+	path = NCAA-March-Madness-2026
+	url = https://github.com/mcaan/NCAA-March-Madness-2026.git
+[submodule "Open-Sourcing-Mental-Health"]
+	path = Open-Sourcing-Mental-Health
+	url = https://github.com/mcaan/Open-Sourcing-Mental-Health.git
+[submodule "Product-Notification-AB-Test"]
+	path = Product-Notification-AB-Test
+	url = https://github.com/mcaan/Product-Notification-AB-Test.git
