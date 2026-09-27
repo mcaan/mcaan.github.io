@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Michael Caan's data science portfolio: experimentation, predictive modeling, and behavioral segmentation.">
+  <meta name="theme-color" content="#12233b">
+  <meta property="og:title" content="Michael Caan | Data Science Portfolio">
+  <meta property="og:description" content="Data science projects in experimentation, predictive modeling, and behavioral segmentation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mcaan.github.io/portfolio/">
+  <title>Michael Caan | Data Science Portfolio</title>
+  <link rel="canonical" href="https://mcaan.github.io/portfolio/">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Michael Caan, home">MC<span class="brand-dot">.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#work">Projects</a>
+        <a href="#approach">Approach</a>
+        <a href="https://github.com/mcaan" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" id="top" aria-labelledby="hero-title">
+      <p class="eyebrow">DATA SCIENCE · PRODUCT ANALYTICS</p>
+      <h1 id="hero-title">Evidence that helps<br><em>make decisions.</em></h1>
+      <p class="hero-copy">I’m Michael Caan. I work across experimentation, predictive modeling, and behavioral analysis, connecting rigorous methods to practical choices.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#work">Explore projects <span aria-hidden="true">↗</span></a>
+        <a class="button button-secondary" href="https://github.com/mcaan" target="_blank" rel="noopener noreferrer">View GitHub</a>
+      </div>
+      <div class="hero-stats" aria-label="Portfolio themes">
+        <span>01 <strong>Experimentation</strong></span>
+        <span>02 <strong>Prediction</strong></span>
+        <span>03 <strong>Segmentation</strong></span>
+      </div>
+    </section>
+
+    <section class="projects" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow">SELECTED WORK</p><h2 id="work-title">From analysis to action</h2></div><p>Three projects, each centered on a decision and the evidence behind it.</p></div>
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="card-top"><span class="project-number">01 / EXPERIMENTATION</span><span class="pill">A/B testing</span></div>
+            <h3>Product notification experiment</h3>
+            <p class="card-summary">Would a new category notification increase purchases without causing too many users to uninstall?</p>
+            <div class="finding"><span>THE FINDING</span><p>Transactions rose <strong>7.40 percentage points</strong>, while uninstalls rose <strong>2.03 points</strong>. The recommendation: iterate on the notification before broad rollout.</p></div>
+            <p class="methods">Randomization checks · confidence intervals · guardrails · revenue impact</p>
+            <a class="card-link" href="https://github.com/mcaan/Product-Notification-AB-Test" target="_blank" rel="noopener noreferrer" aria-label="Read the product notification experiment on GitHub">Read case study <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="project-card">
+            <div class="card-top"><span class="project-number">02 / PREDICTIVE MODELING</span><span class="pill">Sports analytics</span></div>
+            <h3>March Madness predictions</h3>
+            <p class="card-summary">How do model choices change when the goal is accurate probabilities versus a winning bracket?</p>
+            <div class="finding"><span>THE FINDING</span><p>The ensemble led the project’s Kaggle submissions with a <strong>0.1483 Brier score</strong>; the pruned logistic model earned the most bracket points.</p></div>
+            <p class="methods">SQL feature pipeline · logistic regression · XGBoost · ensemble</p>
+            <a class="card-link" href="https://github.com/mcaan/NCAA-March-Madness-2026" target="_blank" rel="noopener noreferrer" aria-label="Read the March Madness prediction project on GitHub">Read case study <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="project-card">
+            <div class="card-top"><span class="project-number">03 / BEHAVIORAL ANALYSIS</span><span class="pill">Segmentation</span></div>
+            <h3>Mental health in tech</h3>
+            <p class="card-summary">Which personal and workplace factors are associated with seeking mental health treatment?</p>
+            <div class="finding"><span>THE FINDING</span><p>Personal readiness showed the strongest treatment signal; workplace access appeared especially relevant among respondents with lower readiness.</p></div>
+            <p class="methods">Survey harmonization · PCA / UMAP · clustering · propensity modeling</p>
+            <a class="card-link" href="https://github.com/mcaan/Open-Sourcing-Mental-Health" target="_blank" rel="noopener noreferrer" aria-label="Read the mental health in tech project on GitHub">Read case study <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach wrap" id="approach" aria-labelledby="approach-title">
+      <div><p class="eyebrow">HOW I WORK</p><h2 id="approach-title">Start with the decision.<br>Then earn the answer.</h2></div>
+      <div class="approach-copy"><p>These projects follow a common thread: define the question, test the data and assumptions, compare useful alternatives, and make the trade-offs visible.</p><p>Explore the repositories for notebooks, methodology, limitations, and reproducibility notes.</p><a class="text-link" href="https://github.com/mcaan?tab=repositories" target="_blank" rel="noopener noreferrer">All repositories <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-inner"><span>© <span id="year">2026</span> Michael Caan</span><a href="https://github.com/mcaan" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
