@@ -2,7 +2,7 @@
 
 Source for [Michael Caan's portfolio](https://mcaan.github.io/portfolio/), hosted with GitHub Pages.
 
-The homepage is a lightweight static site in `index.html` and `styles.css`. The three project repositories are tracked as Git submodules; the homepage links directly to their GitHub READMEs for full methods, limitations, notebooks, and data-access notes.
+The homepage is a minimal static page in `index.html` and `styles.css`. The three project repositories are tracked as Git submodules; the homepage links directly to their GitHub READMEs for full methods, limitations, notebooks, and data-access notes.
 
 ## Projects
 
@@ -14,7 +14,7 @@ The homepage is a lightweight static site in `index.html` and `styles.css`. The 
 
 ## Local preview
 
-Run `python -m http.server 8000` in this repository, then open `http://localhost:8000/`. The page uses no build step. Fonts are requested from Google Fonts, with local fallbacks.
+Run `python -m http.server 8000` in this repository, then open `http://localhost:8000/`. The page uses no build step or external assets.
 
 ## Publishing
 
