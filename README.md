@@ -2,16 +2,16 @@
 
 Source for [Michael Caan's portfolio](https://mcaan.github.io/), hosted with GitHub Pages.
 
-The homepage is a responsive static page in `index.html` and `styles.css`. The three published projects link to their GitHub repositories. The fourth card reserves a place for Customer LTV and Churn Predictions. Profile photo, bio, and résumé are placeholders.
+The homepage is a responsive static page in `index.html` and `styles.css`. All four project cards link to their GitHub repositories. The résumé link opens `resume.html`; profile photo and bio remain placeholders.
 
 ## Projects
 
 | Project | Focus | Repository |
 | --- | --- | --- |
-| Product notification experiment | Randomized A/B test and conversion–retention trade-off | [Product-Notification-AB-Test](https://github.com/mcaan/Product-Notification-AB-Test) |
+| Customer LTV and Churn Predictions | RFM segmentation, CLV forecasting, and churn modeling | [LTV-Churn-Online-Retail](https://github.com/mcaan/LTV-Churn-Online-Retail) |
 | NCAA March Madness 2026 | Predictive modeling, feature engineering, and evaluation objectives | [NCAA-March-Madness-2026](https://github.com/mcaan/NCAA-March-Madness-2026) |
+| Product notification experiment | Randomized A/B test and conversion–retention trade-off | [Product-Notification-AB-Test](https://github.com/mcaan/Product-Notification-AB-Test) |
 | Mental health in tech | Survey harmonization, segmentation, and treatment-seeking propensity | [Open-Sourcing-Mental-Health](https://github.com/mcaan/Open-Sourcing-Mental-Health) |
-| Customer LTV and Churn Predictions | Customer analytics and predictive modeling | Coming soon |
 
 ## Local preview
 
