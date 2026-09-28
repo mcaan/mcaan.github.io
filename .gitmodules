@@ -7,3 +7,6 @@
 [submodule "Product-Notification-AB-Test"]
 	path = Product-Notification-AB-Test
 	url = https://github.com/mcaan/Product-Notification-AB-Test.git
+[submodule "LTV-Churn-Online-Retail"]
+	path = LTV-Churn-Online-Retail
+	url = https://github.com/mcaan/LTV-Churn-Online-Retail.git
