@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Michael Caan's product notification A/B test case study.">
+  <meta name="theme-color" content="#10191b">
+  <title>Product Notification A/B Test — Michael Caan</title>
+  <link rel="canonical" href="https://mcaan.github.io/projects/notification-ab-test.html">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    :root{color-scheme:dark;--ink:#f2efe8;--muted:#a8aba8;--line:#ffffff20;--bg:#10191b}
+    body.case-page{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}
+    .case-shell{max-width:58rem;margin:0 auto;padding:clamp(22px,4vw,48px) 1.5rem 5rem}
+    .case-nav{display:flex;justify-content:space-between;gap:1rem;padding-bottom:1.25rem;border-bottom:1px solid var(--line)}
+    .case-nav a,.case-link{font-size:.85rem;text-decoration:none;border-bottom:1px solid #dcb881;padding-bottom:7px}.case-nav a:hover,.case-link:hover{color:#e9bd79}
+    .case-header{padding:clamp(42px,8vw,85px) 0 2.8rem}.case-header h1{font-family:Georgia,serif;font-size:clamp(2.7rem,6vw,4.6rem);font-weight:400;letter-spacing:-.045em;line-height:1.08;margin:1rem 0 1.3rem;max-width:14ch}.lede{font-size:clamp(1.05rem,2vw,1.27rem);line-height:1.55;max-width:45rem;margin:0;color:#dadfd9}.meta{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin:1.65rem 0 0;font-size:.79rem;color:var(--muted)}.header-link{display:inline-block;margin-top:1.4rem}
+    .case-section{border-top:1px solid var(--line);padding:2.4rem 0;display:grid;grid-template-columns:11rem 1fr;gap:2rem}.case-section h2{margin:0;color:#dfb77e;font-size:.84rem;font-weight:600}.case-section p{margin:0 0 1rem;max-width:65ch}.case-section p:last-child{margin-bottom:0}.case-section strong{color:#f1d5ae;font-weight:600}.case-section ul{margin:0;padding-left:1.2rem;max-width:65ch}.case-section li{margin:0 0 .8rem}.case-section li::marker{color:#dfb77e}
+    .step-list{display:grid;gap:1.1rem}.step{display:grid;grid-template-columns:2.1rem 1fr;gap:.8rem}.step span{font-size:.73rem;letter-spacing:.08em;color:#dfb77e;padding-top:.25rem}.step p{margin:0}
+    .figure{margin:1.8rem 0 0;padding:1.5rem;background:#1a292b;border:1px solid var(--line)}.figure h3{font-family:Georgia,serif;font-weight:400;font-size:1.36rem;margin:0 0:.4rem}.figure .sub{font-size:.78rem;color:var(--muted);margin-bottom:1.5rem}.metric{margin:1.1rem 0 1.7rem}.metric h4{font-size:.78rem;font-weight:600;margin:0 0:.75rem}.bar-row{display:grid;grid-template-columns:9rem minmax(0,1fr) 3.3rem;align-items:center;gap:.65rem;margin:.55rem 0;font-size:.76rem;color:#d5dcd6}.track{height:.76rem;background:#34494a;overflow:hidden}.fill{height:100%;background:#91aca4}.fill.treatment{background:#e2ba83}.bar-row b{text-align:right;font-variant-numeric:tabular-nums;font-size:.77rem;font-weight:600}.figure figcaption{border-top:1px solid var(--line);padding-top:.9rem;color:var(--muted);font-size:.75rem;line-height:1.5}
+    .note{color:var(--muted);font-size:.91rem}.case-footer{border-top:1px solid var(--line);padding-top:2rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem;align-items:center}.case-footer p{max-width:45ch;margin:0;color:var(--muted);font-size:.85rem}
+    @media(max-width:680px){.case-section{grid-template-columns:1fr;gap:1rem}.case-section h2{margin-bottom:.3rem}.bar-row{grid-template-columns:7rem minmax(0,1fr) 3rem}.figure{padding:1rem}}
+    @media print{body.case-page{background:white;color:black}.case-nav,.case-footer{display:none}.case-section{break-inside:avoid}.figure{background:white;color:black}.figure h3,.metric h4{color:black}}
+  </style>
+</head>
+<body class="case-page">
+  <div class="case-shell">
+    <nav class="case-nav" aria-label="Page navigation"><a href="../index.html">← Projects</a><a href="../resume.html">Résumé ↗</a></nav>
+    <header class="case-header">
+      <span class="eyebrow">Case study / Experimentation</span>
+      <h1>Product Notification A/B Test</h1>
+      <p class="lede">Testing whether an in-app notification for a new product category could increase purchases without an unacceptable rise in app uninstalls.</p>
+      <p class="meta"><span>Decco · Course-provided experiment data</span><span>Python · SciPy · statsmodels</span><span>Randomization checks · Guardrails</span></p>
+      <a class="case-link header-link" href="https://github.com/mcaan/Product-Notification-AB-Test">View code and full README on GitHub ↗</a>
+    </header>
+    <main>
+      <section class="case-section" aria-labelledby="question"><h2 id="question">The question</h2><div><p>Decco, a home-decor retailer in an instructional case study, introduced a Lamps category. Would a promotional notification increase transactions—and what would it cost in app uninstalls?</p><p><strong>100,000 users</strong> were assigned equally to treatment (notification) and control (no notification). Transaction rate was the primary metric; uninstall rate was the retention guardrail. Revenue per randomized user captured the overall monetization effect.</p></div></section>
+      <section class="case-section" aria-labelledby="approach"><h2 id="approach">The approach</h2><div class="step-list">
+        <div class="step"><span>01</span><p>Size the experiment around a historical 10.1% transaction rate and a 20% relative minimum detectable effect, then check allocation, missingness, and baseline covariates.</p></div>
+        <div class="step"><span>02</span><p>Compare randomized groups with differences in proportions, two-proportion tests, and confidence intervals. Check the conclusions with baseline-adjusted logistic models.</p></div>
+        <div class="step"><span>03</span><p>Translate transaction, revenue, and uninstall effects to a common scale of 10,000 treated users; treat post-hoc subgroup findings as hypotheses for another experiment.</p></div>
+      </div></section>
+      <section class="case-section" aria-labelledby="results"><h2 id="results">What happened</h2><div><p>The notification increased transaction rate from <strong>10.12% to 17.52%</strong>, an absolute lift of <strong>7.40 percentage points</strong> (95% confidence interval: approximately +6.98 to +7.83 points). Revenue per randomized user increased from <strong>$27.51 to $56.67</strong>.</p><p>The guardrail also worsened: uninstall rate rose from <strong>2.99% to 5.03%</strong>, approximately +2.03 percentage points. The same treatment that drove purchases was associated with more users removing the app.</p>
+        <figure class="figure" aria-labelledby="chart-title"><h3 id="chart-title">The conversion–retention trade-off</h3><p class="sub">Share of randomized users · Control versus notification · Both charts use a 0–20% scale</p>
+          <div class="metric"><h4>Transaction rate <span style="color:var(--muted);font-weight:400">(higher is better)</span></h4>
+            <div class="bar-row"><span>Control</span><div class="track"><div class="fill" style="width:50.6%"></div></div><b>10.12%</b></div>
+            <div class="bar-row"><span>Notification</span><div class="track"><div class="fill treatment" style="width:87.6%"></div></div><b>17.52%</b></div>
+          </div>
+          <div class="metric"><h4>Uninstall rate <span style="color:var(--muted);font-weight:400">(lower is better)</span></h4>
+            <div class="bar-row"><span>Control</span><div class="track"><div class="fill" style="width:14.95%"></div></div><b>2.99%</b></div>
+            <div class="bar-row"><span>Notification</span><div class="track"><div class="fill treatment" style="width:25.15%"></div></div><b>5.03%</b></div>
+          </div>
+          <figcaption>Rates are reported in the project README. Gold denotes the notification group in both charts; its longer uninstall bar is a harmful guardrail increase, not a success.</figcaption>
+        </figure></div></section>
+      <section class="case-section" aria-labelledby="decision"><h2 id="decision">The product decision</h2><div><p>For every 10,000 users exposed at the observed effects, the experiment implies roughly <strong>740 additional purchasers</strong>, <strong>$291,581 more revenue</strong>, and <strong>203 additional uninstalls</strong>. These figures make the trade-off concrete but do not by themselves establish whether the lost users outweigh the incremental sales.</p><p>The recommendation is <strong>not to roll out this version broadly</strong>. Instead, test alternative message, timing, frequency, or targeting choices to preserve purchase lift while reducing uninstall risk. A break-even decision needs contribution margin and the expected future value lost when a user uninstalls.</p></div></section>
+      <section class="case-section" aria-labelledby="limits"><h2 id="limits">What to validate next</h2><div><p>An exploratory analysis found a larger uninstall effect among previously active users (+2.51 points) than inactive users (+0.60 points), with an interaction p-value of 0.009. Because this comparison was motivated after seeing the results, it is a hypothesis for a pre-specified follow-up test, not a ready-made targeting policy.</p><p class="note">Allocation was exactly 50/50, and observed baseline characteristics were similar, but those checks cannot prove every aspect of implementation was error-free. The data come from instructional course material, not a live operating retailer.</p></div></section>
+    </main>
+    <footer class="case-footer"><p>Full methodology, notebook, limitations, and reproduction instructions are in the repository.</p><a class="case-link" href="https://github.com/mcaan/Product-Notification-AB-Test">View code and full README on GitHub ↗</a></footer>
+  </div>
+</body>
+</html>

@@ -4,9 +4,78 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Michael Caan's experience, education, and analytics skills.">
+  <meta name="theme-color" content="#10191b">
   <title>Résumé — Michael Caan</title>
   <link rel="canonical" href="https://mcaan.github.io/resume.html">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Résumé page. Uses the tokens from styles.css: --ink, --muted, --line, --bg.
+       The values below repeat them so the page still looks right if styles.css doesn't load. */
+    :root { color-scheme: dark; --ink: #f2efe8; --muted: #a8aba8; --line: #ffffff20; --bg: #10191b; }
+    body.resume-page { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    .resume-shell { max-width: 52rem; margin: 0 auto; padding: clamp(22px, 4vw, 48px) 1.5rem 4rem; }
+
+    .resume-nav { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
+    .resume-nav a { text-decoration: none; border-bottom: 1px solid #dcb881; padding-bottom: 7px; font-size: .85rem; }
+    .resume-nav a:hover { color: #e9bd79; }
+
+    .resume-header { padding: clamp(36px, 7vw, 72px) 0 2rem; }
+    .resume-header h1 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(2.5rem, 6vw, 3.8rem); line-height: 1.05; letter-spacing: -.04em; margin: 14px 0 20px; }
+    .resume-contact { display: flex; flex-wrap: wrap; gap: .5rem 1.75rem; color: var(--muted); font-size: .92rem; }
+    .resume-contact a { text-decoration-color: #dcb881; text-underline-offset: 4px; }
+    .resume-contact a:hover { color: #e9bd79; }
+
+    .resume-section { padding-top: 2.25rem; }
+    .resume-section h2 { display: flex; align-items: center; gap: 1rem; margin: 0 0 1.5rem; font-size: .9rem; font-weight: 600; color: #dfb77e; }
+    .resume-section h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+    .resume-company { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .25rem 1rem; margin-bottom: 1.25rem; }
+    .resume-company h3 { margin: 0; font-family: Georgia, serif; font-weight: 400; font-size: 1.6rem; letter-spacing: -.03em; }
+    .resume-company span { color: var(--muted); font-size: .85rem; }
+
+    .resume-role { display: grid; grid-template-columns: 11rem 1fr; gap: .4rem 2rem; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+    .resume-role-head { display: contents; }
+    .resume-role-head span { grid-column: 1; grid-row: 1; color: var(--muted); font-size: .85rem; line-height: 1.5; }
+    .resume-role-head h4 { grid-column: 2; grid-row: 1; margin: 0; font-family: Georgia, serif; font-weight: 400; font-size: 1.2rem; letter-spacing: -.02em; line-height: 1.3; }
+    .resume-role ul { grid-column: 2; grid-row: 2; margin: .35rem 0 0; padding-left: 1.1rem; }
+    .resume-role li { margin-bottom: .55rem; padding-left: .15rem; max-width: 65ch; line-height: 1.65; font-size: 1rem; color: var(--ink); }
+    .resume-role li::marker { color: #dfb77e; }
+    .resume-role li:last-child { margin-bottom: 0; }
+
+    .resume-entry { display: flex; justify-content: space-between; align-items: baseline; gap: .25rem 1.5rem; padding: .94rem 0; border-top: 1px solid var(--line); }
+    .resume-entry:first-of-type { border-top: 0; padding-top: 0; }
+    .resume-entry h3 { margin: 0; font-family: Georgia, serif; font-weight: 400; font-size: 1.2rem; letter-spacing: -.02em; }
+    .resume-entry p { margin: .2rem 0 0; color: var(--muted); font-size: .9rem; }
+    .resume-entry > span { flex-shrink: 0; color: var(--muted); font-size: .85rem; }
+
+    .resume-skills { margin: 0; }
+    .resume-skills > div { display: grid; grid-template-columns: 11rem 1fr; gap: .25rem 2rem; padding: .85rem 0; border-top: 1px solid var(--line); }
+    .resume-skills > div:first-child { border-top: 0; padding-top: 0; }
+    .resume-skills dt { font-weight: 600; font-size: .94rem; }
+    .resume-skills dd { margin: 0; color: var(--muted); font-size: .94rem; max-width: 65ch; }
+
+    @media (max-width: 640px) {
+      .resume-shell { padding: 1.25rem 1.1rem 3rem; }
+      .resume-role, .resume-skills > div { grid-template-columns: 1fr; gap: .15rem; }
+      .resume-role-head span, .resume-role-head h4, .resume-role ul { grid-column: 1; }
+      .resume-role-head h4 { grid-row: 1; }
+      .resume-role-head span { grid-row: 2; margin-bottom: .5rem; }
+      .resume-role ul { grid-row: 3; }
+      .resume-entry { flex-direction: column; }
+    }
+
+    @media print {
+      :root { --ink: #000; --muted: #444; --line: #ccc; --bg: #fff; }
+      body { background: #fff; color: #000; font-size: 10.5pt; }
+      .resume-nav { display: none; }
+      .resume-shell { max-width: none; padding: 0; }
+      .resume-header { padding: 0 0 1rem; }
+      .resume-section h2 { color: #000; }
+      .resume-role li { color: #000; }
+      .resume-role { break-inside: avoid; padding: .9rem 0; }
+      a { text-decoration: none; }
+    }
+  </style>
 </head>
 <body class="resume-page">
   <div class="resume-shell">
@@ -19,18 +88,18 @@
     <main>
       <section class="resume-section" aria-labelledby="experience"><h2 id="experience">Work experience</h2>
         <div class="resume-company"><h3>Crossmedia (XM)</h3><span>Feb. 2019 – Feb. 2025</span></div>
-        <article class="resume-role"><div class="resume-role-head"><h4>Supervisor, Analytics</h4><span>Apr. 2022 – Feb. 2025 · Remote</span></div><ul>
+        <article class="resume-role"><div class="resume-role-head"><h4>Supervisor, Analytics</h4><span>Apr. 2022 – Feb. 2025<br>Remote</span></div><ul>
           <li>Served as primary analytics partner for multiple clients, delivering insights that shaped product, marketing, and media.</li>
           <li>Drove cross-functional alignment and data quality via migration to Snowflake–Tableau and standardized dashboards.</li>
           <li>Evaluated and championed analytics tools, becoming SME and accelerating adoption of automation and reporting.</li>
           <li>Built full-funnel dashboards for an annual sports sponsorship, benchmarking media, engagement, and conversions, enabling A/B-style optimizations to drive signups.</li>
         </ul></article>
-        <article class="resume-role"><div class="resume-role-head"><h4>Senior Data Analyst</h4><span>Sep. 2020 – Apr. 2022 · Remote</span></div><ul>
+        <article class="resume-role"><div class="resume-role-head"><h4>Senior Data Analyst</h4><span>Sep. 2020 – Apr. 2022<br>Remote</span></div><ul>
           <li>Streamlined client-facing reporting for the largest XMLA account, reducing monthly cycle time by ~1 week across teams.</li>
           <li>Produced audience and segmentation insights shaping targeting strategy for new business pitches.</li>
           <li>Led agency-wide training on analytics tools, boosting team proficiency in audience and competitive platforms.</li>
         </ul></article>
-        <article class="resume-role"><div class="resume-role-head"><h4>Data Analyst</h4><span>Feb. 2019 – Sep. 2020 · Los Angeles, CA</span></div><ul>
+        <article class="resume-role"><div class="resume-role-head"><h4>Data Analyst</h4><span>Feb. 2019 – Sep. 2020<br>Los Angeles, CA</span></div><ul>
           <li>Managed reporting for all XMLA clients, conducted QA checks, standardized workflows, and delivered actionable insights.</li>
           <li>Onboarded new clients, tailoring reporting structures, KPIs, and dashboards to support successful adoption.</li>
         </ul></article>

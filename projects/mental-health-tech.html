@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Michael Caan's Mental Health in Tech survey analysis case study.">
+  <meta name="theme-color" content="#10191b">
+  <title>Mental Health in Tech — Michael Caan</title>
+  <link rel="canonical" href="https://mcaan.github.io/projects/mental-health-tech.html">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    :root{color-scheme:dark;--ink:#f2efe8;--muted:#a8aba8;--line:#ffffff20;--bg:#10191b}
+    body.case-page{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}
+    .case-shell{max-width:58rem;margin:0 auto;padding:clamp(22px,4vw,48px) 1.5rem 5rem}
+    .case-nav{display:flex;justify-content:space-between;gap:1rem;padding-bottom:1.25rem;border-bottom:1px solid var(--line)}
+    .case-nav a,.case-link{font-size:.85rem;text-decoration:none;border-bottom:1px solid #dcb881;padding-bottom:7px}.case-nav a:hover,.case-link:hover{color:#e9bd79}
+    .case-header{padding:clamp(42px,8vw,85px) 0 2.8rem}.case-header h1{font-family:Georgia,serif;font-size:clamp(2.7rem,6vw,4.6rem);font-weight:400;letter-spacing:-.045em;line-height:1.08;margin:1rem 0 1.3rem;max-width:14ch}.lede{font-size:clamp(1.05rem,2vw,1.27rem);line-height:1.55;max-width:45rem;margin:0;color:#dadfd9}.meta{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin:1.65rem 0 0;font-size:.79rem;color:var(--muted)}.header-link{display:inline-block;margin-top:1.4rem}
+    .case-section{border-top:1px solid var(--line);padding:2.4rem 0;display:grid;grid-template-columns:11rem 1fr;gap:2rem}.case-section h2{margin:0;color:#dfb77e;font-size:.84rem;font-weight:600}.case-section p{margin:0 0 1rem;max-width:65ch}.case-section p:last-child{margin-bottom:0}.case-section strong{color:#f1d5ae;font-weight:600}.case-section ul{margin:0;padding-left:1.2rem;max-width:65ch}.case-section li{margin:0 0 .8rem}.case-section li::marker{color:#dfb77e}
+    .step-list{display:grid;gap:1.1rem}.step{display:grid;grid-template-columns:2.1rem 1fr;gap:.8rem}.step span{font-size:.73rem;letter-spacing:.08em;color:#dfb77e;padding-top:.25rem}.step p{margin:0}
+    .figure{margin:1.8rem 0 0;padding:1.5rem;background:#1a292b;border:1px solid var(--line)}.figure h3{font-family:Georgia,serif;font-weight:400;font-size:1.36rem;margin:0 0:.4rem}.figure .sub{font-size:.78rem;color:var(--muted);margin-bottom:1.5rem}.metric{margin:1.1rem 0 1.7rem}.metric h4{font-size:.78rem;font-weight:600;margin:0 0:.75rem}.bar-row{display:grid;grid-template-columns:9rem minmax(0,1fr) 3.3rem;align-items:center;gap:.65rem;margin:.55rem 0;font-size:.76rem;color:#d5dcd6}.track{height:.76rem;background:#34494a;overflow:hidden}.fill{height:100%;background:#91aca4}.fill.highlight{background:#e2ba83}.bar-row b{text-align:right;font-variant-numeric:tabular-nums;font-size:.77rem;font-weight:600}.figure figcaption{border-top:1px solid var(--line);padding-top:.9rem;color:var(--muted);font-size:.75rem;line-height:1.5}
+    .note{color:var(--muted);font-size:.91rem}.case-footer{border-top:1px solid var(--line);padding-top:2rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem;align-items:center}.case-footer p{max-width:45ch;margin:0;color:var(--muted);font-size:.85rem}
+    @media(max-width:680px){.case-section{grid-template-columns:1fr;gap:1rem}.case-section h2{margin-bottom:.3rem}.bar-row{grid-template-columns:7rem minmax(0,1fr) 3rem}.figure{padding:1rem}}
+    @media print{body.case-page{background:white;color:black}.case-nav,.case-footer{display:none}.case-section{break-inside:avoid}.figure{background:white;color:black}.figure h3,.metric h4{color:black}}
+  </style>
+</head>
+<body class="case-page">
+  <div class="case-shell">
+    <nav class="case-nav" aria-label="Page navigation"><a href="../index.html">← Projects</a><a href="../resume.html">Résumé ↗</a></nav>
+    <header class="case-header">
+      <span class="eyebrow">Case study / Behavioral analysis</span>
+      <h1>Mental Health in Tech</h1>
+      <p class="lede">Examining how personal mental health experiences and workplace resources relate to treatment-seeking across nine years of technology-worker surveys.</p>
+      <p class="meta"><span>Open Sourcing Mental Health · 2014, 2016–2023</span><span>Python · PCA · UMAP · K-Means</span><span>Segmentation · Propensity modeling</span></p>
+      <a class="case-link header-link" href="https://github.com/mcaan/Open-Sourcing-Mental-Health">View code and full README on GitHub ↗</a>
+    </header>
+    <main>
+      <section class="case-section" aria-labelledby="question"><h2 id="question">The question</h2><div><p>Which individual and workplace factors distinguish respondents who report seeking mental health treatment? Does the workplace environment relate differently to treatment among people with different levels of personal mental health salience?</p><p>Survey questions changed over time, so the analysis first harmonizes responses from 2014 and 2016–2023 into a common feature set. The treatment measure is self-reported; the survey does not establish why an individual did or did not seek care.</p></div></section>
+      <section class="case-section" aria-labelledby="approach"><h2 id="approach">The approach</h2><div class="step-list">
+        <div class="step"><span>01</span><p>Align the changing questionnaires, normalize answers, and examine missingness by survey year before interpreting pooled patterns.</p></div>
+        <div class="step"><span>02</span><p>Use PCA to summarize correlated survey variables, UMAP to explore respondent structure, and K-Means on the PCA representation to describe three segments.</p></div>
+        <div class="step"><span>03</span><p>Compare treatment behavior across latent dimensions and segments, then check the pattern with logistic, elastic-net logistic, and shallow decision-tree models.</p></div>
+      </div></section>
+      <section class="case-section" aria-labelledby="results"><h2 id="results">What stood out</h2><div><p>One PCA dimension, <strong>PC4</strong>, was most strongly associated with reported treatment status (Cohen’s <em>d</em> ≈ 0.58). Its loadings involved family history, interference with work, observed consequences, and comfort taking leave. The project interprets this pattern as <strong>mental health salience or readiness to act</strong>, an analytical description rather than a directly measured psychological trait.</p><p>Among respondents high on PC4, treatment rates were approximately <strong>68–71%</strong> across the three clusters. Among those low on PC4, the rates differed more across clusters:</p>
+        <figure class="figure" aria-labelledby="chart-title"><h3 id="chart-title">Treatment among lower-PC4 respondents</h3><p class="sub">Share reporting treatment within each cluster · Bars scaled from 0 to 100%</p>
+          <div class="metric"><h4>Reported treatment rate</h4>
+            <div class="bar-row"><span>Cluster 0</span><div class="track"><div class="fill" style="width:32.2%"></div></div><b>32.2%</b></div>
+            <div class="bar-row"><span>Cluster 1</span><div class="track"><div class="fill" style="width:32.4%"></div></div><b>32.4%</b></div>
+            <div class="bar-row"><span>Cluster 2</span><div class="track"><div class="fill highlight" style="width:48.8%"></div></div><b>48.8%</b></div>
+          </div>
+          <figcaption>Rates are reported in the project README. Cluster labels are descriptive group identifiers; the higher rate in Cluster 2 is an association, not an estimated effect of workplace support.</figcaption>
+        </figure>
+        <p class="note" style="margin-top:1.25rem"><strong>Who are the clusters?</strong> Across the full sample, Cluster 0 reports less work interference and family-history exposure; Cluster 1 reports more of both but often lacks clear information about workplace resources. Cluster 2 reports more visible support and fewer uncertain resource answers than Cluster 1. Clusters 0 and 1 reach similar treatment rates in the lower-PC4 subset despite those different overall profiles; Cluster 2 reaches a higher rate. These descriptions provide context for the chart, not proof of why the rates differ or that support caused the gap.</p></div></section>
+      <section class="case-section" aria-labelledby="interpretation"><h2 id="interpretation">Interpreting the pattern</h2><div><p>The analysis separates two related dimensions: <strong>personal readiness</strong>, reflected in salience and experience, and <strong>environment</strong>, reflected in workplace resources and awareness. Treatment behavior was similar across clusters for respondents high on PC4, but diverged among those low on PC4.</p><p>Predictive models were moderate rather than deployment-ready: logistic and elastic-net logistic regression each reached <strong>0.723 ROC AUC</strong> and <strong>0.213 Brier score</strong> in the reported evaluation. PC4 remained the strongest treatment-related latent factor. The models support interpretation, not individual clinical decisions.</p></div></section>
+      <section class="case-section" aria-labelledby="next"><h2 id="next">Organizational implications</h2><div><p>A practical hypothesis is to make care options easier to understand and access, especially for people who may be uncertain about available support. For people with strong treatment-related signals, clear instructions and resource navigation may address a different gap between intent and action.</p><p class="note">These are ideas to test, not causal findings. Responses are observational and self-reported; questionnaire changes create year-dependent missingness, later years have smaller samples, and PCA components and clusters are descriptive constructs.</p></div></section>
+    </main>
+    <footer class="case-footer"><p>Full methodology, notebooks, limitations, and reproduction instructions are in the repository.</p><a class="case-link" href="https://github.com/mcaan/Open-Sourcing-Mental-Health">View code and full README on GitHub ↗</a></footer>
+  </div>
+</body>
+</html>
