@@ -18,6 +18,7 @@
     .resume-nav { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
     .resume-nav a { text-decoration: none; border-bottom: 1px solid #dcb881; padding-bottom: 7px; font-size: .85rem; }
     .resume-nav a:hover { color: #e9bd79; }
+    .nav-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 1.25rem; }
 
     .resume-header { padding: clamp(36px, 7vw, 72px) 0 2rem; }
     .resume-header h1 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(2.5rem, 6vw, 3.8rem); line-height: 1.05; letter-spacing: -.04em; margin: 14px 0 20px; }
@@ -79,11 +80,11 @@
 </head>
 <body class="resume-page">
   <div class="resume-shell">
-    <nav class="resume-nav" aria-label="Page navigation"><a href="index.html">← Projects</a><a href="https://github.com/mcaan">GitHub ↗</a></nav>
+    <nav class="resume-nav" aria-label="Page navigation"><a href="index.html">← Projects</a><span class="nav-actions"><a href="https://github.com/mcaan">GitHub ↗</a><a href="https://www.linkedin.com/in/mcaan/">LinkedIn ↗</a></span></nav>
     <header class="resume-header">
-      <span class="eyebrow">Résumé / Michael Caan</span>
+      <span class="eyebrow">Résumé</span>
       <h1>Michael Caan</h1>
-      <div class="resume-contact"><a href="mailto:caan.michael.13156@gmail.com">caan.michael.13156@gmail.com</a><span>Los Angeles, CA</span><a href="tel:+15629222969">(562) 922-2969</a></div>
+      <div class="resume-contact"><span>Los Angeles, CA</span></div>
     </header>
     <main>
       <section class="resume-section" aria-labelledby="experience"><h2 id="experience">Work experience</h2>
