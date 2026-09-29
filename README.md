@@ -2,7 +2,7 @@
 
 Source for [Michael Caan's portfolio](https://mcaan.github.io/), hosted with GitHub Pages.
 
-The homepage is a responsive static page in `index.html` and `styles.css`. Each card opens a concise case study under `projects/`, with links to the full code and README in its GitHub repository. The sidebar links to the résumé, GitHub, and LinkedIn; the bio remains a placeholder.
+The homepage is a responsive static page in `index.html` and `styles.css`. Each card opens a concise case study under `projects/`, with links to the full code and README in its GitHub repository. The sidebar links to the résumé, GitHub, and LinkedIn; the homepage includes a short bio.
 
 ## Projects
 
